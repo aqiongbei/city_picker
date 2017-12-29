@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择城市</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/choose_city.css">
+	<script src="./js/jquery.min.js"></script>
+</head>
+<body>
+	<div class="city-picker">
+	</div>
+	<div class="current-city-wrapper">
+		<p>当前定位城市</p>
+		<div class="current-city">
+			<span>北京</span>
+			<i></i>
+		</div>
+	</div>
+	<div class="city-list-wrapper">
+		<div class="city-list-content">
+			<div class="city-list-hot-wrapper">
+				<p>热门城市</p>
+				<ul class="city-list-hot">
+				</ul>
+			</div>
+			<div class="city-list">
+			</div>
+		</div>
+	</div>
+	<script src="./js/choose_city.js"></script>
+	<script src="./js/city_list.js"></script>
+	<script>
+		$(".city-picker").CityPicker({hotCities: hotCities, cities: cities});
+	</script>
+</body>
+</html>
