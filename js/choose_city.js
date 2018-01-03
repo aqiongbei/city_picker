@@ -1,3 +1,4 @@
+// 啥也别问,这是网上拷的移动端自适应的代码,懂不
 (function (doc, win) {
     var docEl = doc.documentElement,
         resizeEvt = 'onorientationchange' in window ? 'onorientationchange' : 'resize',
@@ -10,12 +11,12 @@
                 docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
             }
         };
-
     if (!doc.addEventListener) return;
     win.addEventListener(resizeEvt, recalc, false);
     doc.addEventListener('DOMContentLoaded', recalc, false);
 })(document, window);
 
+// 这个代码也是网上拷的别人的,我改吧改吧,这货思想不错,但是代码写的可真的够烂的
 (function($, win, doc) {
     var CityPicker = function(ele, options) {
         this.ele = $(ele);
@@ -29,13 +30,23 @@
     var p = CityPicker.prototype;
 
     p.init = function() {
+        this.initContainer();
         this.renderHotCityList();
         this.renderCityList();
         this.initCityListEvent();
         this.renderCityNav();
         this.initCityNavEvent();
     };
-
+    p.initContainer = function () {
+        var htmlStr = '<div class="current-city-wrapper">';
+            htmlStr += '<p>当前定位城市</p><div class="current-city"><span>北京</span><i></i></div>'
+            htmlStr += '</div>';
+            htmlStr += '<div class="city-list-wrapper"><div class="city-list-content">';
+            htmlStr += '<div class="city-list-hot-wrapper"><p>热门城市</p><ul class="city-list-hot"></ul></div>';
+            htmlStr += '<div class="city-list"></div>';
+            htmlStr += '</div></div></div>';
+            this.ele.append(htmlStr);
+    }
     p.renderCityList = function() {
         var cities = this.cities;
         var cityListStr = "";
